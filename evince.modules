@@ -9,7 +9,7 @@
       href="git://anongit.freedesktop.org/poppler/"/>
   <repository type="git" name="git.freedesktop.org"
     href="git://anongit.freedesktop.org/"/>
-  <include href="../jhbuild/modulesets/gnome-apps-3.12.modules"/>
+  <include href="../modulesets/gnome-apps-3.12.modules"/>
 
   <autotools id="poppler" autogenargs="--enable-xpdf-headers"
                           makeargs="POPPLER_GLIB_DISABLE_DEPRECATED=">
