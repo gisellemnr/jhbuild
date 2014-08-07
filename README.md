@@ -1,4 +1,4 @@
 jhbuild
 =======
 
-Configurations files for jhbuild
+Configuration files for jhbuild
