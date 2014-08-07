@@ -1,0 +1,45 @@
+<?xml version="1.0"?><!--*- mode: nxml; indent-tabs-mode: nil -*-->
+<!DOCTYPE moduleset SYSTEM "moduleset.dtd">
+<?xml-stylesheet type="text/xsl" href="moduleset.xsl"?>
+<!-- vim:set ts=2 expandtab: -->
+<moduleset>
+
+<!-- git repos -->
+  <repository type="git" name="poppler.freedesktop.org"
+      href="git://anongit.freedesktop.org/poppler/"/>
+  <repository type="git" name="git.freedesktop.org"
+    href="git://anongit.freedesktop.org/"/>
+  <include href="../jhbuild/modulesets/gnome-apps-3.12.modules"/>
+
+  <autotools id="poppler" autogenargs="--enable-xpdf-headers"
+                          makeargs="POPPLER_GLIB_DISABLE_DEPRECATED=">
+    <pkg-config>poppler-glib.pc</pkg-config>
+    <branch repo="poppler.freedesktop.org" />
+    <dependencies>
+      <dep package="glib"/>
+      <dep package="cairo"/>
+      <dep package="poppler-data"/>
+    </dependencies>
+  </autotools>
+
+  <cmake id="poppler-data">
+    <branch repo="poppler.freedesktop.org" />
+  </cmake>
+
+  <autotools id="cairo" autogenargs="--enable-xlib">
+    <pkg-config>cairo.pc</pkg-config>
+    <branch repo="git.freedesktop.org" revision="master" />
+    <dependencies>
+      <dep package="fontconfig"/>
+    </dependencies>
+  </autotools>
+
+  <autotools id="pixman" autogenargs="--disable-gtk">
+    <branch repo="git.freedesktop.org" revision="0.30"/>
+  </autotools>
+
+  <autotools id="libspectre" autogenargs="">
+    <branch repo="git.freedesktop.org" />
+  </autotools>
+
+</moduleset>
