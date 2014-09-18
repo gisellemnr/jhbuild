@@ -8,7 +8,7 @@ import __builtin__
 USE_CHECKOUT_SRC = True
 
 if USE_CHECKOUT_SRC:
-    sys.path.insert(0, '/home/giselle/sharedhome/projects/gnome-dev/jhbuild')
+    sys.path.insert(0, '/home/giselle/data/projects/gnome-dev/jhbuild')
     pkgdatadir = None
     datadir = None
     import jhbuild

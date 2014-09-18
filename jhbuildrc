@@ -17,24 +17,26 @@ moduleset = "https://raw.githubusercontent.com/gisellemnr/jhbuild/master/evince.
 modules = [ 'librsvg', 'poppler', 'evince' ]
 
 branches['evince'] = 'master'
+branches['gtk+'] = 'master'
+branches['glib'] = 'master'
 
 # Or to build the old GNOME 2.32:
 # moduleset = 'gnome2/gnome-2.32'
 # modules = ['meta-gnome-desktop']
 
 # what directory should the source be checked out to?
-checkoutroot = '~/sharedhome/projects/gnome-dev'
+checkoutroot = '~/data/projects/gnome-dev'
 
 # the prefix to configure/install modules to (must have write access)
-prefix = '~/sharedhome/projects/gnome'
+prefix = '~/data/projects/gnome'
 
 # custom CFLAGS / environment pieces for the build
-os.environ['CFLAGS'] = '-Wall -g -O0'
+os.environ['CFLAGS'] = '-Wall -g -O0 -pg'
 
 # extra arguments to pass to all autogen.sh scripts
 # to speed up builds of GNOME, try '--disable-static --disable-gtk-doc'
 #autogenargs=''
-module_autogenargs['evince'] = autogenargs + ' --disable-nautilus --enable-debug'
+module_autogenargs['evince'] = autogenargs + ' --disable-nautilus --enable-debug=yes'
 
 # A string listing additional arguments to be passed to make.
 # Set makeargs to 'V=1' for verbose build output.
